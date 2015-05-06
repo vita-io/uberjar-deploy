@@ -14,7 +14,6 @@
         name (:name project)
         identifier (format "%s/%s" group name)
         version (:version project)
-        file (or (:jar-filename project) (jar/get-jar-filename project :standalone))
-        pom (or (:pom project) "pom.xml")]
-    (main/info "Running: lein deploy" repository identifier version file pom)
-    (deploy/deploy project repository identifier version file pom)))
+        file (or (:jar-filename project) (jar/get-jar-filename project :standalone))]
+    (main/info "Running: lein deploy" repository identifier version file)
+    (deploy/deploy project repository identifier version file)))
